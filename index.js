@@ -1,12 +1,13 @@
 const express = require('express');
-const routes = require('./category/routes');
+const routes = require('./app/routes');
+const bodyParser = require('body-parser');
 
 // app creation
 const app = express();
 
-
+app.use(bodyParser.json());
 /* main route of application */
-app.use('/category', routes);
+app.use('', routes);
 
 /*server is listing on port no 3000*/
 app.listen(process.env.port || 3000, function(){
