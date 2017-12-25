@@ -4,6 +4,10 @@ const mongoConnection = require('../setting');
 var CategorySchema = new mongoose.Schema({
   child_category: [],
   product: [],
+  name: {
+    type: String,
+    required: true
+  },
   created_at: {
   	type: Date,
   	default: Date.now
