@@ -2,13 +2,24 @@
 
 In this, Rest Framework has been used to make REST API calls. It supports only json api format. 
 
+## POSTMAN
+   Url: https://www.getpostman.com/collections/077eb9346d4a21fd6a5d
+
 ## API LIST
 
 Category
 ```
-1. category/addCategory - POST - Add Category
-
+1. category/ - POST - Add Category
+2. category/:category - GET - Get the category by category name
 ```
+
+Product 
+```
+1. product/:product - GET - get product by product name
+2. product/ - POST - create product
+3. product  - PUT  - update product 
+```
+
 ## Installation Of Project
 
 1. clone repository first
