@@ -3,8 +3,10 @@ const controllers = require('./controllers')
 
 let routes = express.Router();
 
-routes.get('/', controllers.getProduct);
+routes.get('/:product', controllers.getProduct);
 
 routes.post('/', controllers.createProduct);
+
+routes.put('/', controllers.modifyProduct);
 
 module.exports = routes;

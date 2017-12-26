@@ -7,4 +7,6 @@ routes.get('/:category', controllers.getCategory);
 
 routes.post('/', controllers.createCategory);
 
+routes.get('/products/:category', controllers.getProducts);
+
 module.exports = routes;

@@ -12,7 +12,7 @@ function create(name, callback){
 	}, callback);
 }
 
-function update(parentId, categoryObj, callback){
+function updateByCategory(parentId, categoryObj, callback){
 	let childCategory = {
 		categoryId: categoryObj._id,
 		category_name: categoryObj.name
@@ -26,8 +26,23 @@ function update(parentId, categoryObj, callback){
 	}, callback);
 }
 
+function updateByProduct(parentId, productObj, callback){
+	let product = {
+		name: productObj.name,
+		id: productObj.id
+	}
+	category.findOneAndUpdate({
+		"_id": parentId
+	},{
+		"$push": {
+			"product": product
+		}
+	}, callback);
+}
+
 module.exports = {
 	get: get,
 	create: create,
-	update: update
+	updateByCategory: updateByCategory,
+	updateByProduct: updateByProduct
 }

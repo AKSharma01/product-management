@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const mongoConnection = require('../setting');
+const mongoConnection = require('../setting');
 
 var ProductSchema = new mongoose.Schema({
   name: {
@@ -18,6 +18,7 @@ var ProductSchema = new mongoose.Schema({
   	type: Date, 
   	default: Date.now 
   },
+  category: []
 });
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model('product', ProductSchema);

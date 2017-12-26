@@ -1,33 +1,48 @@
-const category = require('./models');
+const product = require('./models');
 
 function get(name, callback){
-	category.find({
+	product.find({
 		name: name
 	}, callback);
 }
 
-function create(name, callback){
-	category.create({
-		name: name
+function filter(filterKey, callback){
+	product.find(filterKey, callback);
+}
+
+function create(body, callback){
+	product.create({
+		name: body.name,
+		price: body.price,
+		category: [{
+			id: body.category.id,
+			name: body.category.name
+		}]
 	}, callback);
 }
 
 function update(parentId, categoryObj, callback){
-	let childCategory = {
-		categoryId: categoryObj._id,
-		category_name: categoryObj.name
+	let category = {
+		id: categoryObj._id,
+		name: categoryObj.name
 	}
-	category.findOneAndUpdate({
+	product.findOneAndUpdate({
 		"_id": parentId
 	},{
 		"$push": { 
-			"child_category": childCategory
+			"category": category
 		}
 	}, callback);
+}
+
+function filterUpdate(filterKeys, updateWith, callback){
+	product.findOneAndUpdate(filterKeys, updateWith, callback);
 }
 
 module.exports = {
 	get: get,
 	create: create,
-	update: update
+	update: update,
+	filter: filter,
+	filterUpdate: filterUpdate
 }
