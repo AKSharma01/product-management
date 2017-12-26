@@ -2,6 +2,9 @@
 
 In this, Rest Framework has been used to make REST API calls. It supports only json api format. 
 
+## POSTMAN
+   Url: https://www.getpostman.com/collections/077eb9346d4a21fd6a5d
+
 ## API LIST
 
 Category
